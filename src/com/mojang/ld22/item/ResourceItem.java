@@ -9,12 +9,13 @@ import com.mojang.ld22.item.resource.Resource;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 
-public class ResourceItem extends Item {
+public class ResourceItem extends Item implements Takeable {
 	public Resource resource;
 	public int count = 1;
 
 	static {
 		spriteOffset = 0;
+		fontOffset = 32;
 	}
 
 	public ResourceItem(Resource resource) {
@@ -34,16 +35,9 @@ public class ResourceItem extends Item {
 		return resource.sprite + spriteOffset;
 	}
 
-	public void renderIcon(Screen screen, int x, int y) {
-		screen.render(x, y, resource.sprite, resource.color, 0);
-	}
-
 	public void renderInventory(Screen screen, int x, int y) {
-		screen.render(x, y, resource.sprite, resource.color, 0);
-		Font.draw(resource.name, screen, x + 32, y, Color.LIGHT_GRAY);
-		int cc = count;
-		if (cc > 999) cc = 999;
-		Font.draw("" + cc, screen, x + 8, y, Color.get(-1, 444, 444, 444));
+		super.renderInventory(screen, x, y);
+		Font.draw("" + Math.min(count, 999), screen, x + 8, y, Color.get(-1, 444, 444, 444));
 	}
 
 	public String getName() {

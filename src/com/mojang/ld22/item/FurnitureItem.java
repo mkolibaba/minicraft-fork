@@ -3,13 +3,10 @@ package com.mojang.ld22.item;
 import com.mojang.ld22.entity.Furniture;
 import com.mojang.ld22.entity.ItemEntity;
 import com.mojang.ld22.entity.Player;
-import com.mojang.ld22.gfx.Color;
-import com.mojang.ld22.gfx.Font;
-import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 
-public class FurnitureItem extends Item {
+public class FurnitureItem extends Item implements Takeable {
 	public Furniture furniture;
 	public boolean placed = false;
 
@@ -27,15 +24,6 @@ public class FurnitureItem extends Item {
 
 	public int getSprite() {
 		return furniture.sprite + spriteOffset;
-	}
-
-	public void renderIcon(Screen screen, int x, int y) {
-		screen.render(x, y, getSprite(), getColor(), 0);
-	}
-
-	public void renderInventory(Screen screen, int x, int y) {
-		screen.render(x, y, getSprite(), getColor(), 0);
-		Font.draw(furniture.name, screen, x + 8, y, Color.LIGHT_GRAY);
 	}
 
 	public void onTake(ItemEntity itemEntity) {

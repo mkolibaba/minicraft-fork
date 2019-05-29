@@ -4,29 +4,20 @@ import com.mojang.ld22.entity.Entity;
 import com.mojang.ld22.entity.Furniture;
 import com.mojang.ld22.entity.Player;
 import com.mojang.ld22.gfx.Color;
-import com.mojang.ld22.gfx.Font;
-import com.mojang.ld22.gfx.Screen;
 
 public class PowerGloveItem extends Item {
+	private int color = Color.get(-1, 100, 320, 430);
+
 	static {
 		spriteOffset = 4 * 32;
 	}
 
 	public int getColor() {
-		return Color.get(-1, 100, 320, 430);
+		return color;
 	}
 
 	public int getSprite() {
 		return 7 + spriteOffset;
-	}
-
-	public void renderIcon(Screen screen, int x, int y) {
-		screen.render(x, y, getSprite(), getColor(), 0);
-	}
-
-	public void renderInventory(Screen screen, int x, int y) {
-		screen.render(x, y, getSprite(), getColor(), 0);
-		Font.draw(getName(), screen, x + 8, y, Color.LIGHT_GRAY);
 	}
 
 	public String getName() {
