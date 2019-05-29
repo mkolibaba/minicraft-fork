@@ -74,9 +74,8 @@ public class ToolItem extends Item {
 		if (item instanceof ToolItem) {
 			ToolItem other = (ToolItem) item;
 			if (other.type != type) return false;
-			if (other.level != level) return false;
-			return true;
-		}
+            return other.level == level;
+        }
 		return false;
 	}
 }

@@ -72,7 +72,7 @@ public class WheatTile extends Tile {
 
 		int count = random.nextInt(2);
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.seeds), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+			level.add(new ItemEntity(new ResourceItem(Resource.SEEDS), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
 		}
 
 		count = 0;
@@ -82,7 +82,7 @@ public class WheatTile extends Tile {
 			count = random.nextInt(2) + 1;
 		}
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.wheat), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+			level.add(new ItemEntity(new ResourceItem(Resource.WHEAT), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
 		}
 
 		level.setTile(x, y, Tile.dirt, 0);

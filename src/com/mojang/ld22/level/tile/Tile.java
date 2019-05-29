@@ -34,9 +34,9 @@ public class Tile {
 	public static Tile infiniteFall = new InfiniteFallTile(16);
 	public static Tile cloud = new CloudTile(17);
 	public static Tile hardRock = new HardRockTile(18);
-	public static Tile ironOre = new OreTile(19, Resource.ironOre);
-	public static Tile goldOre = new OreTile(20, Resource.goldOre);
-	public static Tile gemOre = new OreTile(21, Resource.gem);
+	public static Tile ironOre = new OreTile(19, Resource.IRON_ORE);
+	public static Tile goldOre = new OreTile(20, Resource.GOLD_ORE);
+	public static Tile gemOre = new OreTile(21, Resource.GEM);
 	public static Tile cloudCactus = new CloudCactusTile(22);
 
 	public final byte id;

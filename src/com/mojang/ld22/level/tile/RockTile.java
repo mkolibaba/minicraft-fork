@@ -94,11 +94,11 @@ public class RockTile extends Tile {
 		if (damage >= 50) {
 			int count = random.nextInt(4) + 1;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.stone), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.STONE), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
 			}
 			count = random.nextInt(2);
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.coal), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.COAL), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
 			}
 			level.setTile(x, y, Tile.dirt, 0);
 		} else {

@@ -10,10 +10,6 @@ import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.FurnitureItem;
 import com.mojang.ld22.item.Item;
 import com.mojang.ld22.item.PowerGloveItem;
-import com.mojang.ld22.item.ResourceItem;
-import com.mojang.ld22.item.ToolItem;
-import com.mojang.ld22.item.ToolType;
-import com.mojang.ld22.item.resource.Resource;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 import com.mojang.ld22.screen.InventoryMenu;
@@ -133,7 +129,7 @@ public class Player extends Mob {
 		if (attackDir == 3) xt = (x + r) >> 4;
 
 		if (xt >= 0 && yt >= 0 && xt < level.w && yt < level.h) {
-			if (level.getTile(xt, yt).use(level, xt, yt, this, attackDir)) return true;
+			return level.getTile(xt, yt).use(level, xt, yt, this, attackDir);
 		}
 
 		return false;
@@ -365,7 +361,7 @@ public class Player extends Mob {
 
 	protected void die() {
 		super.die();
-		Sound.playerDeath.play();
+		Sound.PLAYER_DEATH.play();
 	}
 
 	protected void touchedBy(Entity entity) {
@@ -377,7 +373,7 @@ public class Player extends Mob {
 	protected void doHurt(int damage, int attackDir) {
 		if (hurtTime > 0 || invulnerableTime > 0) return;
 
-		Sound.playerHurt.play();
+		Sound.PLAYER_HURT.play();
 		level.add(new TextParticle("" + damage, x, y, Color.get(-1, 504, 504, 504)));
 		health -= damage;
 		if (attackDir == 0) yKnockback = +6;

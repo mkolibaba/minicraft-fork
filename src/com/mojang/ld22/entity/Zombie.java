@@ -91,7 +91,7 @@ public class Zombie extends Mob {
 
 		int count = random.nextInt(2) + 1;
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.cloth), x + random.nextInt(11) - 5, y + random.nextInt(11) - 5));
+			level.add(new ItemEntity(new ResourceItem(Resource.CLOTH), x + random.nextInt(11) - 5, y + random.nextInt(11) - 5));
 		}
 
 		if (level.player != null) {

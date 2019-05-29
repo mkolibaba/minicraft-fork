@@ -4,13 +4,13 @@ import java.applet.Applet;
 import java.applet.AudioClip;
 
 public class Sound {
-	public static final Sound playerHurt = new Sound("/playerhurt.wav");
-	public static final Sound playerDeath = new Sound("/death.wav");
-	public static final Sound monsterHurt = new Sound("/monsterhurt.wav");
-	public static final Sound test = new Sound("/test.wav");
-	public static final Sound pickup = new Sound("/pickup.wav");
-	public static final Sound bossdeath = new Sound("/bossdeath.wav");
-	public static final Sound craft = new Sound("/craft.wav");
+	public static final Sound PLAYER_HURT = new Sound("/playerhurt.wav");
+	public static final Sound PLAYER_DEATH = new Sound("/death.wav");
+	public static final Sound MONSTER_HURT = new Sound("/monsterhurt.wav");
+	public static final Sound TEST = new Sound("/test.wav");
+	public static final Sound PICKUP = new Sound("/pickup.wav");
+	public static final Sound BOSS_DEATH = new Sound("/bossdeath.wav");
+	public static final Sound CRAFT = new Sound("/craft.wav");
 
 	private AudioClip clip;
 
@@ -24,11 +24,7 @@ public class Sound {
 
 	public void play() {
 		try {
-			new Thread() {
-				public void run() {
-					clip.play();
-				}
-			}.start();
+			new Thread(() -> clip.play()).start();
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
