@@ -128,8 +128,8 @@ public class AirWizard extends Mob {
 			}
 		}
 		if (hurtTime > 0) {
-			col1 = Color.get(-1, 555, 555, 555);
-			col2 = Color.get(-1, 555, 555, 555);
+			col1 = Color.LIGHT_GRAY;
+			col2 = Color.LIGHT_GRAY;
 		}
 
 		screen.render(xo + 8 * flip1, yo + 0, xt + yt * 32, col1, flip1);

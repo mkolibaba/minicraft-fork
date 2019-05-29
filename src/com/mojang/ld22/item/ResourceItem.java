@@ -36,7 +36,7 @@ public class ResourceItem extends Item {
 
 	public void renderInventory(Screen screen, int x, int y) {
 		screen.render(x, y, resource.sprite, resource.color, 0);
-		Font.draw(resource.name, screen, x + 32, y, Color.get(-1, 555, 555, 555));
+		Font.draw(resource.name, screen, x + 32, y, Color.LIGHT_GRAY);
 		int cc = count;
 		if (cc > 999) cc = 999;
 		Font.draw("" + cc, screen, x + 8, y, Color.get(-1, 444, 444, 444));

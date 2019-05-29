@@ -105,7 +105,7 @@ public class Mob extends Entity {
 				Sound.MONSTER_HURT.play();
 			}
 		}
-		level.add(new TextParticle("" + damage, x, y, Color.get(-1, 500, 500, 500)));
+		level.add(new TextParticle("" + damage, x, y, Color.GRAY));
 		health -= damage;
 		if (attackDir == 0) yKnockback = +6;
 		if (attackDir == 1) yKnockback = -6;

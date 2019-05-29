@@ -25,7 +25,7 @@ public class Menu {
 
     protected void render0(Screen screen, boolean won) {
         Font.renderFrame(screen, "", 1, 3, 18, 9);
-        Font.draw(won ? "You won! Yay!" : "You died! Aww!", screen, 2 * 8, 4 * 8, Color.get(-1, 555, 555, 555));
+        Font.draw(won ? "You won! Yay!" : "You died! Aww!", screen, 2 * 8, 4 * 8, Color.LIGHT_GRAY);
 
         int seconds = game.gameTime / 60;
         int minutes = seconds / 60;
@@ -39,9 +39,9 @@ public class Menu {
         } else {
             timeString = minutes + "m " + (seconds < 10 ? "0" : "") + seconds + "s";
         }
-        Font.draw("Time:", screen, 2 * 8, 5 * 8, Color.get(-1, 555, 555, 555));
+        Font.draw("Time:", screen, 2 * 8, 5 * 8, Color.LIGHT_GRAY);
         Font.draw(timeString, screen, (2 + 5) * 8, 5 * 8, Color.get(-1, 550, 550, 550));
-        Font.draw("Score:", screen, 2 * 8, 6 * 8, Color.get(-1, 555, 555, 555));
+        Font.draw("Score:", screen, 2 * 8, 6 * 8, Color.LIGHT_GRAY);
         Font.draw("" + game.player.score, screen, (2 + 6) * 8, 6 * 8, Color.get(-1, 550, 550, 550));
         Font.draw(won ? "Press C to win" : "Press C to lose", screen, 2 * 8, 8 * 8, Color.get(-1, 333, 333, 333));
     }

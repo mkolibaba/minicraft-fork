@@ -71,7 +71,7 @@ public class Zombie extends Mob {
 		if (lvl == 3) col = Color.get(-1, 111, 444, 050);
 		if (lvl == 4) col = Color.get(-1, 000, 111, 020);
 		if (hurtTime > 0) {
-			col = Color.get(-1, 555, 555, 555);
+			col = Color.LIGHT_GRAY;
 		}
 
 		screen.render(xo + 8 * flip1, yo + 0, xt + yt * 32, col, flip1);

@@ -11,6 +11,8 @@ import com.mojang.ld22.item.ResourceItem;
 import com.mojang.ld22.item.resource.Resource;
 import com.mojang.ld22.level.Level;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class CactusTile extends Tile {
 	public CactusTile(int id) {
 		super(id);
@@ -31,12 +33,12 @@ public class CactusTile extends Tile {
 
 	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
 		int damage = level.getData(x, y) + dmg;
-		level.add(new SmashParticle(x * 16 + 8, y * 16 + 8));
-		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.get(-1, 500, 500, 500)));
+		level.add(SmashParticle.createDefault(x, y));
+		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.GRAY));
 		if (damage >= 10) {
-			int count = random.nextInt(2) + 1;
+			int count = DEFAULT_RANDOM.nextInt(2) + 1;
 			for (int i = 0; i < count; i++) {
-				level.add(new ItemEntity(new ResourceItem(Resource.CACTUS_FLOWER), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));
+				level.add(new ItemEntity(new ResourceItem(Resource.CACTUS_FLOWER), x * 16 + DEFAULT_RANDOM.nextInt(10) + 3, y * 16 + DEFAULT_RANDOM.nextInt(10) + 3));
 			}
 			level.setTile(x, y, Tile.sand, 0);
 		} else {

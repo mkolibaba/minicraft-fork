@@ -80,7 +80,7 @@ public class Slime extends Mob {
 		if (lvl == 4) col = Color.get(-1, 000, 111, 224);
 
 		if (hurtTime > 0) {
-			col = Color.get(-1, 555, 555, 555);
+			col = Color.LIGHT_GRAY;
 		}
 
 		screen.render(xo + 0, yo + 0, xt + yt * 32, col, 0);

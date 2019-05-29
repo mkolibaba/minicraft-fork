@@ -25,7 +25,7 @@ public class Resource {
     public static final Resource GOLD_INGOT = new Resource("GOLD", 11 + 4 * 32, Color.get(-1, 110, 330, 553));
 
     public static final Resource SLIME = new Resource("SLIME", 10 + 4 * 32, Color.get(-1, 10, 30, 50));
-    public static final Resource GLASS = new Resource("glass", 12 + 4 * 32, Color.get(-1, 555, 555, 555));
+    public static final Resource GLASS = new Resource("glass", 12 + 4 * 32, Color.LIGHT_GRAY);
     public static final Resource CLOTH = new Resource("cloth", 1 + 4 * 32, Color.get(-1, 25, 252, 141));
     public static final Resource CLOUD = new PlantableResource("cloud", 2 + 4 * 32, Color.get(-1, 222, 555, 444), Tile.cloud, Tile.infiniteFall);
     public static final Resource GEM = new Resource("gem", 13 + 4 * 32, Color.get(-1, 101, 404, 545));

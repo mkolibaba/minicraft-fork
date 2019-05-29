@@ -73,7 +73,7 @@ public class CraftingMenu extends Menu {
 			int hasResultItems = player.inventory.count(recipe.resultTemplate);
 			int xo = 13 * 8;
 			screen.render(xo, 2 * 8, recipe.resultTemplate.getSprite(), recipe.resultTemplate.getColor(), 0);
-			Font.draw("" + hasResultItems, screen, xo + 8, 2 * 8, Color.get(-1, 555, 555, 555));
+			Font.draw("" + hasResultItems, screen, xo + 8, 2 * 8, Color.LIGHT_GRAY);
 
 			List<Item> costs = recipe.costs;
 			for (int i = 0; i < costs.size(); i++) {
@@ -85,7 +85,7 @@ public class CraftingMenu extends Menu {
 					requiredAmt = ((ResourceItem) item).count;
 				}
 				int has = player.inventory.count(item);
-				int color = Color.get(-1, 555, 555, 555);
+				int color = Color.LIGHT_GRAY;
 				if (has < requiredAmt) {
 					color = Color.get(-1, 222, 222, 222);
 				}
