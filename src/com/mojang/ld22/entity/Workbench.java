@@ -14,7 +14,7 @@ public class Workbench extends Furniture {
 	}
 
 	public boolean use(Player player, int attackDir) {
-		player.game.setMenu(new CraftingMenu(Crafting.workbenchRecipes, player));
+		player.game.setMenu(new CraftingMenu(Crafting.WORKBENCH_RECIPES, player));
 		return true;
 	}
 }

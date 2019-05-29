@@ -14,7 +14,7 @@ public class Oven extends Furniture {
 	}
 
 	public boolean use(Player player, int attackDir) {
-		player.game.setMenu(new CraftingMenu(Crafting.ovenRecipes, player));
+		player.game.setMenu(new CraftingMenu(Crafting.OVEN_RECIPES, player));
 		return true;
 	}
 }

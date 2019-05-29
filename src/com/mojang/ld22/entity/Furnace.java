@@ -14,7 +14,7 @@ public class Furnace extends Furniture {
 	}
 
 	public boolean use(Player player, int attackDir) {
-		player.game.setMenu(new CraftingMenu(Crafting.furnaceRecipes, player));
+		player.game.setMenu(new CraftingMenu(Crafting.FURNACE_RECIPES, player));
 		return true;
 	}
 }

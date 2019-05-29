@@ -70,7 +70,7 @@ public class CloudTile extends Tile {
 	public boolean interact(Level level, int xt, int yt, Player player, Item item, int attackDir) {
 		if (item instanceof ToolItem) {
 			ToolItem tool = (ToolItem) item;
-			if (tool.type == ToolType.shovel) {
+			if (tool.type == ToolType.SHOVEL) {
 				if (player.payStamina(5)) {
 					// level.setTile(xt, yt, Tile.infiniteFall, 0);
 					int count = random.nextInt(2) + 1;
@@ -85,6 +85,6 @@ public class CloudTile extends Tile {
 	}
 
 	/*
-	 * public boolean interact(Level level, int xt, int yt, Player player, Item item, int attackDir) { if (item instanceof ToolItem) { ToolItem tool = (ToolItem) item; if (tool.type == ToolType.pickaxe) { if (player.payStamina(4 - tool.level)) { hurt(level, xt, yt, random.nextInt(10) + (tool.level) * 5 + 10); return true; } } } return false; }
+	 * public boolean interact(Level level, int xt, int yt, Player player, Item item, int attackDir) { if (item instanceof ToolItem) { ToolItem tool = (ToolItem) item; if (tool.type == ToolType.PICKAXE) { if (player.payStamina(4 - tool.level)) { hurt(level, xt, yt, random.nextInt(10) + (tool.level) * 5 + 10); return true; } } } return false; }
 	 */
 }

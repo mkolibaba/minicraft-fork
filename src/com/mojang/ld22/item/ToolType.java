@@ -1,17 +1,46 @@
 package com.mojang.ld22.item;
 
-public class ToolType {
-	public static ToolType shovel = new ToolType("Shvl", 0);
-	public static ToolType hoe = new ToolType("Hoe", 1);
-	public static ToolType sword = new ToolType("Swrd", 2);
-	public static ToolType pickaxe = new ToolType("Pick", 3);
-	public static ToolType axe = new ToolType("Axe", 4);
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
 
-	public final String name;
-	public final int sprite;
+public enum ToolType {
+    SHOVEL("Shvl", 0) {
+        @Override
+        public int getAttackDamageBonus(int level) {
+            return 1;
+        }
+    },
+    HOE("Hoe", 1) {
+        @Override
+        public int getAttackDamageBonus(int level) {
+            return 1;
+        }
+    },
+    SWORD("Swrd", 2) {
+        @Override
+        public int getAttackDamageBonus(int level) {
+            return (level + 1) * 3 + DEFAULT_RANDOM.nextInt(2 + level * level * 2);
+        }
+    },
+    PICKAXE("Pick", 3) {
+        @Override
+        public int getAttackDamageBonus(int level) {
+            return 1;
+        }
+    },
+    AXE("Axe", 4) {
+        @Override
+        public int getAttackDamageBonus(int level) {
+            return (level + 1) * 2 + DEFAULT_RANDOM.nextInt(4);
+        }
+    };
 
-	private ToolType(String name, int sprite) {
-		this.name = name;
-		this.sprite = sprite;
-	}
+    public final String name;
+    public final int sprite;
+
+    ToolType(String name, int sprite) {
+        this.name = name;
+        this.sprite = sprite;
+    }
+
+    public abstract int getAttackDamageBonus(int level);
 }

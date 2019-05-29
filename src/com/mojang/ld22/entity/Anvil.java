@@ -14,7 +14,7 @@ public class Anvil extends Furniture {
 	}
 
 	public boolean use(Player player, int attackDir) {
-		player.game.setMenu(new CraftingMenu(Crafting.anvilRecipes, player));
+		player.game.setMenu(new CraftingMenu(Crafting.ANVIL_RECIPES, player));
 		return true;
 	}
 }
