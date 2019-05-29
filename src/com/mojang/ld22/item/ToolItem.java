@@ -7,31 +7,32 @@ import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;
 
 public class ToolItem extends Item {
-    public static final int MAX_LEVEL = 5;
-    public static final String[] LEVEL_NAMES = {"Wood", "Rock", "Iron", "Gold", "Gem"};
-
-    public static final int[] LEVEL_COLORS = {
-            Color.get(-1, 100, 321, 431),
-            Color.get(-1, 100, 321, 111),
-            Color.get(-1, 100, 321, 555),
-            Color.get(-1, 100, 321, 550),
-            Color.get(-1, 100, 321, 55),
-    };
-
     public ToolType type;
-    public int level;
+    public ToolMaterial material;
+    public int rarity;
 
-    public ToolItem(ToolType type, int level) {
+    static {
+        spriteOffset = 5 * 32;
+    }
+
+    public ToolItem(ToolType type, int rarity) {
         this.type = type;
-        this.level = level;
+        this.rarity = rarity;
+        this.material = ToolMaterial.fromRarity(rarity);
+    }
+
+    public ToolItem(ToolType type, ToolMaterial material) {
+        this.type = type;
+        this.material = material;
+        this.rarity = material.rarity;
     }
 
     public int getColor() {
-        return LEVEL_COLORS[level];
+        return material.color;
     }
 
     public int getSprite() {
-        return type.sprite + 5 * 32;
+        return type.sprite + spriteOffset;
     }
 
     public void renderIcon(Screen screen, int x, int y) {
@@ -44,7 +45,7 @@ public class ToolItem extends Item {
     }
 
     public String getName() {
-        return LEVEL_NAMES[level] + " " + type.name;
+        return material.name() + " " + type.name;
     }
 
     public void onTake(ItemEntity itemEntity) {
@@ -55,14 +56,14 @@ public class ToolItem extends Item {
     }
 
     public int getAttackDamageBonus(Entity e) {
-        return type.getAttackDamageBonus(level);
+        return type.getAttackDamageBonus(rarity);
     }
 
     public boolean matches(Item item) {
         if (item instanceof ToolItem) {
             ToolItem other = (ToolItem) item;
             if (other.type != type) return false;
-            return other.level == level;
+            return other.rarity == rarity;
         }
         return false;
     }

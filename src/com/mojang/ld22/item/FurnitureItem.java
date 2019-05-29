@@ -13,6 +13,10 @@ public class FurnitureItem extends Item {
 	public Furniture furniture;
 	public boolean placed = false;
 
+	static {
+		spriteOffset = 10 * 32;
+	}
+
 	public FurnitureItem(Furniture furniture) {
 		this.furniture = furniture;
 	}
@@ -22,7 +26,7 @@ public class FurnitureItem extends Item {
 	}
 
 	public int getSprite() {
-		return furniture.sprite + 10 * 32;
+		return furniture.sprite + spriteOffset;
 	}
 
 	public void renderIcon(Screen screen, int x, int y) {

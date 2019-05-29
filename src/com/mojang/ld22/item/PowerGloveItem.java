@@ -8,12 +8,16 @@ import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;
 
 public class PowerGloveItem extends Item {
+	static {
+		spriteOffset = 4 * 32;
+	}
+
 	public int getColor() {
 		return Color.get(-1, 100, 320, 430);
 	}
 
 	public int getSprite() {
-		return 7 + 4 * 32;
+		return 7 + spriteOffset;
 	}
 
 	public void renderIcon(Screen screen, int x, int y) {

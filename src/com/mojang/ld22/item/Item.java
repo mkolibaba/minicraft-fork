@@ -8,14 +8,14 @@ import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 import com.mojang.ld22.screen.ListItem;
 
-public class Item implements ListItem {
+public abstract class Item implements ListItem {
+	protected static int spriteOffset;
+
 	public int getColor() {
 		return 0;
 	}
 
-	public int getSprite() {
-		return 0;
-	}
+	public abstract int getSprite();
 
 	public void onTake(ItemEntity itemEntity) {
 	}

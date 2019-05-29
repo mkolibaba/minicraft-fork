@@ -1,6 +1,7 @@
 package com.mojang.ld22.crafting;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import com.mojang.ld22.entity.Anvil;
@@ -9,61 +10,57 @@ import com.mojang.ld22.entity.Furnace;
 import com.mojang.ld22.entity.Oven;
 import com.mojang.ld22.entity.Lantern;
 import com.mojang.ld22.entity.Workbench;
+import com.mojang.ld22.item.ToolMaterial;
 import com.mojang.ld22.item.ToolType;
 import com.mojang.ld22.item.resource.Resource;
 
 public class Crafting {
-    public static final List<Recipe> ANVIL_RECIPES = new ArrayList<>();
-    public static final List<Recipe> OVEN_RECIPES = new ArrayList<>();
-    public static final List<Recipe> FURNACE_RECIPES = new ArrayList<>();
-    public static final List<Recipe> WORKBENCH_RECIPES = new ArrayList<>();
+    public static final List<Recipe> ANVIL_RECIPES =
+            Arrays.asList(
+                    new ToolRecipe(ToolType.SWORD, ToolMaterial.IRON).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.AXE, ToolMaterial.IRON).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.HOE, ToolMaterial.IRON).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.PICKAXE, ToolMaterial.IRON).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.SHOVEL, ToolMaterial.IRON).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.SWORD, ToolMaterial.GOLD).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5),
+                    new ToolRecipe(ToolType.AXE, ToolMaterial.GOLD).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5),
+                    new ToolRecipe(ToolType.HOE, ToolMaterial.GOLD).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5),
+                    new ToolRecipe(ToolType.PICKAXE, ToolMaterial.GOLD).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5),
+                    new ToolRecipe(ToolType.SHOVEL, ToolMaterial.GOLD).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5),
+                    new ToolRecipe(ToolType.SWORD, ToolMaterial.GEM).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50),
+                    new ToolRecipe(ToolType.AXE, ToolMaterial.GEM).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50),
+                    new ToolRecipe(ToolType.HOE, ToolMaterial.GEM).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50),
+                    new ToolRecipe(ToolType.PICKAXE, ToolMaterial.GEM).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50),
+                    new ToolRecipe(ToolType.SHOVEL, ToolMaterial.GEM).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50)
+            );
 
-    static {
-        try {
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Lantern.class).addCost(Resource.WOOD, 5).addCost(Resource.SLIME, 10).addCost(Resource.GLASS, 4));
+    public static final List<Recipe> OVEN_RECIPES =
+            Collections.singletonList(new ResourceRecipe(Resource.BREAD).addCost(Resource.WHEAT, 4));
 
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Oven.class).addCost(Resource.STONE, 15));
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Furnace.class).addCost(Resource.STONE, 20));
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Workbench.class).addCost(Resource.WOOD, 20));
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Chest.class).addCost(Resource.WOOD, 20));
-            WORKBENCH_RECIPES.add(new FurnitureRecipe(Anvil.class).addCost(Resource.IRON_INGOT, 5));
+    public static final List<Recipe> FURNACE_RECIPES =
+            Arrays.asList(
+                    new ResourceRecipe(Resource.IRON_INGOT).addCost(Resource.IRON_ORE, 4).addCost(Resource.COAL, 1),
+                    new ResourceRecipe(Resource.GOLD_INGOT).addCost(Resource.GOLD_ORE, 4).addCost(Resource.COAL, 1),
+                    new ResourceRecipe(Resource.GLASS).addCost(Resource.SAND, 4).addCost(Resource.COAL, 1)
+            );
 
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.SWORD, 0).addCost(Resource.WOOD, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.AXE, 0).addCost(Resource.WOOD, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.HOE, 0).addCost(Resource.WOOD, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.PICKAXE, 0).addCost(Resource.WOOD, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.SHOVEL, 0).addCost(Resource.WOOD, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.SWORD, 1).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.AXE, 1).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.HOE, 1).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.PICKAXE, 1).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5));
-            WORKBENCH_RECIPES.add(new ToolRecipe(ToolType.SHOVEL, 1).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5));
-
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SWORD, 2).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.AXE, 2).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.HOE, 2).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.PICKAXE, 2).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SHOVEL, 2).addCost(Resource.WOOD, 5).addCost(Resource.IRON_INGOT, 5));
-
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SWORD, 3).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.AXE, 3).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.HOE, 3).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.PICKAXE, 3).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SHOVEL, 3).addCost(Resource.WOOD, 5).addCost(Resource.GOLD_INGOT, 5));
-
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SWORD, 4).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.AXE, 4).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.HOE, 4).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.PICKAXE, 4).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50));
-            ANVIL_RECIPES.add(new ToolRecipe(ToolType.SHOVEL, 4).addCost(Resource.WOOD, 5).addCost(Resource.GEM, 50));
-
-            FURNACE_RECIPES.add(new ResourceRecipe(Resource.IRON_INGOT).addCost(Resource.IRON_ORE, 4).addCost(Resource.COAL, 1));
-            FURNACE_RECIPES.add(new ResourceRecipe(Resource.GOLD_INGOT).addCost(Resource.GOLD_ORE, 4).addCost(Resource.COAL, 1));
-            FURNACE_RECIPES.add(new ResourceRecipe(Resource.GLASS).addCost(Resource.SAND, 4).addCost(Resource.COAL, 1));
-
-            OVEN_RECIPES.add(new ResourceRecipe(Resource.BREAD).addCost(Resource.WHEAT, 4));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+    public static final List<Recipe> WORKBENCH_RECIPES =
+            Arrays.asList(
+                    FurnitureRecipe.fromClass(Lantern.class).addCost(Resource.WOOD, 5).addCost(Resource.SLIME, 10).addCost(Resource.GLASS, 4),
+                    FurnitureRecipe.fromClass(Oven.class).addCost(Resource.STONE, 15),
+                    FurnitureRecipe.fromClass(Furnace.class).addCost(Resource.STONE, 20),
+                    FurnitureRecipe.fromClass(Workbench.class).addCost(Resource.WOOD, 20),
+                    FurnitureRecipe.fromClass(Chest.class).addCost(Resource.WOOD, 20),
+                    FurnitureRecipe.fromClass(Anvil.class).addCost(Resource.IRON_INGOT, 5),
+                    new ToolRecipe(ToolType.SWORD, ToolMaterial.WOOD).addCost(Resource.WOOD, 5),
+                    new ToolRecipe(ToolType.AXE, ToolMaterial.WOOD).addCost(Resource.WOOD, 5),
+                    new ToolRecipe(ToolType.HOE, ToolMaterial.WOOD).addCost(Resource.WOOD, 5),
+                    new ToolRecipe(ToolType.PICKAXE, ToolMaterial.WOOD).addCost(Resource.WOOD, 5),
+                    new ToolRecipe(ToolType.SHOVEL, ToolMaterial.WOOD).addCost(Resource.WOOD, 5),
+                    new ToolRecipe(ToolType.SWORD, ToolMaterial.ROCK).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5),
+                    new ToolRecipe(ToolType.AXE, ToolMaterial.ROCK).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5),
+                    new ToolRecipe(ToolType.HOE, ToolMaterial.ROCK).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5),
+                    new ToolRecipe(ToolType.PICKAXE, ToolMaterial.ROCK).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5),
+                    new ToolRecipe(ToolType.SHOVEL, ToolMaterial.ROCK).addCost(Resource.WOOD, 5).addCost(Resource.STONE, 5)
+            );
 }

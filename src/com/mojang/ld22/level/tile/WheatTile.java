@@ -47,7 +47,7 @@ public class WheatTile extends Tile {
 		if (item instanceof ToolItem) {
 			ToolItem tool = (ToolItem) item;
 			if (tool.type == ToolType.SHOVEL) {
-				if (player.payStamina(4 - tool.level)) {
+				if (player.payStamina(4 - tool.rarity)) {
 					level.setTile(xt, yt, Tile.dirt, 0);
 					return true;
 				}

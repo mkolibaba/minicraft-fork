@@ -29,7 +29,7 @@ public class DirtTile extends Tile {
 		if (item instanceof ToolItem) {
 			ToolItem tool = (ToolItem) item;
 			if (tool.type == ToolType.SHOVEL) {
-				if (player.payStamina(4 - tool.level)) {
+				if (player.payStamina(4 - tool.rarity)) {
 					level.setTile(xt, yt, Tile.hole, 0);
 					level.add(new ItemEntity(new ResourceItem(Resource.DIRT), xt * 16 + random.nextInt(10) + 3, yt * 16 + random.nextInt(10) + 3));
 					Sound.MONSTER_HURT.play();
@@ -37,7 +37,7 @@ public class DirtTile extends Tile {
 				}
 			}
 			if (tool.type == ToolType.HOE) {
-				if (player.payStamina(4 - tool.level)) {
+				if (player.payStamina(4 - tool.rarity)) {
 					level.setTile(xt, yt, Tile.farmland, 0);
 					Sound.MONSTER_HURT.play();
 					return true;

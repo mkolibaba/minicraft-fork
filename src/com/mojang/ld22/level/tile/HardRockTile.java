@@ -77,9 +77,9 @@ public class HardRockTile extends Tile {
 	public boolean interact(Level level, int xt, int yt, Player player, Item item, int attackDir) {
 		if (item instanceof ToolItem) {
 			ToolItem tool = (ToolItem) item;
-			if (tool.type == ToolType.PICKAXE && tool.level == 4) {
-				if (player.payStamina(4 - tool.level)) {
-					hurt(level, xt, yt, random.nextInt(10) + (tool.level) * 5 + 10);
+			if (tool.type == ToolType.PICKAXE && tool.rarity == 4) {
+				if (player.payStamina(4 - tool.rarity)) {
+					hurt(level, xt, yt, random.nextInt(10) + (tool.rarity) * 5 + 10);
 					return true;
 				}
 			}

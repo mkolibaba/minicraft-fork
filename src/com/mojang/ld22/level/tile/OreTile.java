@@ -45,7 +45,7 @@ public class OreTile extends Tile {
 		if (item instanceof ToolItem) {
 			ToolItem tool = (ToolItem) item;
 			if (tool.type == ToolType.PICKAXE) {
-				if (player.payStamina(6 - tool.level)) {
+				if (player.payStamina(6 - tool.rarity)) {
 					hurt(level, xt, yt, 1);
 					return true;
 				}

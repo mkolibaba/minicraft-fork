@@ -13,6 +13,10 @@ public class ResourceItem extends Item {
 	public Resource resource;
 	public int count = 1;
 
+	static {
+		spriteOffset = 0;
+	}
+
 	public ResourceItem(Resource resource) {
 		this.resource = resource;
 	}
@@ -27,7 +31,7 @@ public class ResourceItem extends Item {
 	}
 
 	public int getSprite() {
-		return resource.sprite;
+		return resource.sprite + spriteOffset;
 	}
 
 	public void renderIcon(Screen screen, int x, int y) {
