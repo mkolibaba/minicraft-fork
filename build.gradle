@@ -28,6 +28,14 @@ dependencies {
 //    testImplementation 'junit:junit:4.12'
 }
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
 // Define the main class for the application
 mainClassName = 'com.mojang.ld22.Game'
 

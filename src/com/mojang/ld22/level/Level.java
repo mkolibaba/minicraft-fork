@@ -1,10 +1,8 @@
 package com.mojang.ld22.level;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 
 import com.mojang.ld22.entity.AirWizard;
 import com.mojang.ld22.entity.Entity;
@@ -23,7 +21,7 @@ public class Level {
 
 	public byte[] tiles;
 	public byte[] data;
-	public List<Entity>[] entitiesInTiles;
+	public List<List<Entity>> entitiesInTiles;
 
 	public int grassColor = 141;
 	public int dirtColor = 322;
@@ -31,17 +29,9 @@ public class Level {
 	private int depth;
 	public int monsterDensity = 8;
 
-	public List<Entity> entities = new ArrayList<Entity>();
-	private Comparator<Entity> spriteSorter = new Comparator<Entity>() {
-		public int compare(Entity e0, Entity e1) {
-			if (e1.y < e0.y) return +1;
-			if (e1.y > e0.y) return -1;
-			return 0;
-		}
+	public List<Entity> entities = new ArrayList<>();
+	private Comparator<Entity> spriteSorter = Comparator.comparingInt(e -> e.y);
 
-	};
-
-	@SuppressWarnings("unchecked")
 	public Level(int w, int h, int level, Level parentLevel) {
 		if (level < 0) {
 			dirtColor = 222;
@@ -97,9 +87,9 @@ public class Level {
 				}
 		}
 
-		entitiesInTiles = new ArrayList[w * h];
+		entitiesInTiles = new ArrayList<>(w * h);
 		for (int i = 0; i < w * h; i++) {
-			entitiesInTiles[i] = new ArrayList<Entity>();
+			entitiesInTiles.add(new ArrayList<>());
 		}
 		
 		if (level==1) {
@@ -124,7 +114,7 @@ public class Level {
 		screen.setOffset(0, 0);
 	}
 
-	private List<Entity> rowSprites = new ArrayList<Entity>();
+	private List<Entity> rowSprites = new ArrayList<>();
 
 	public Player player;
 
@@ -138,7 +128,7 @@ public class Level {
 		for (int y = yo; y <= h + yo; y++) {
 			for (int x = xo; x <= w + xo; x++) {
 				if (x < 0 || y < 0 || x >= this.w || y >= this.h) continue;
-				rowSprites.addAll(entitiesInTiles[x + y * this.w]);
+				rowSprites.addAll(entitiesInTiles.get(x + y * this.w));
 			}
 			if (rowSprites.size() > 0) {
 				sortAndRender(screen, rowSprites);
@@ -159,13 +149,12 @@ public class Level {
 		for (int y = yo - r; y <= h + yo + r; y++) {
 			for (int x = xo - r; x <= w + xo + r; x++) {
 				if (x < 0 || y < 0 || x >= this.w || y >= this.h) continue;
-				List<Entity> entities = entitiesInTiles[x + y * this.w];
-				for (int i = 0; i < entities.size(); i++) {
-					Entity e = entities.get(i);
-					// e.render(screen);
-					int lr = e.getLightRadius();
-					if (lr > 0) screen.renderLight(e.x - 1, e.y - 4, lr * 8);
-				}
+				List<Entity> entities = entitiesInTiles.get(x + y * this.w);
+                for (Entity e : entities) {
+                    // e.render(screen);
+                    int lr = e.getLightRadius();
+                    if (lr > 0) screen.renderLight(e.x - 1, e.y - 4, lr * 8);
+                }
 				int lr = getTile(x, y).getLightRadius(this, x, y);
 				if (lr > 0) screen.renderLight(x * 16 + 8, y * 16 + 8, lr * 8);
 			}
@@ -178,10 +167,10 @@ public class Level {
 	// }
 
 	private void sortAndRender(Screen screen, List<Entity> list) {
-		Collections.sort(list, spriteSorter);
-		for (int i = 0; i < list.size(); i++) {
-			list.get(i).render(screen);
-		}
+		list.sort(spriteSorter);
+        for (Entity entity : list) {
+            entity.render(screen);
+        }
 	}
 
 	public Tile getTile(int x, int y) {
@@ -225,12 +214,12 @@ public class Level {
 
 	private void insertEntity(int x, int y, Entity e) {
 		if (x < 0 || y < 0 || x >= w || y >= h) return;
-		entitiesInTiles[x + y * w].add(e);
+		entitiesInTiles.get(x + y * w).add(e);
 	}
 
 	private void removeEntity(int x, int y, Entity e) {
 		if (x < 0 || y < 0 || x >= w || y >= h) return;
-		entitiesInTiles[x + y * w].remove(e);
+		entitiesInTiles.get(x + y * w).remove(e);
 	}
 
 	public void trySpawn(int count) {
@@ -289,7 +278,7 @@ public class Level {
 	}
 
 	public List<Entity> getEntities(int x0, int y0, int x1, int y1) {
-		List<Entity> result = new ArrayList<Entity>();
+		List<Entity> result = new ArrayList<>();
 		int xt0 = (x0 >> 4) - 1;
 		int yt0 = (y0 >> 4) - 1;
 		int xt1 = (x1 >> 4) + 1;
@@ -297,11 +286,10 @@ public class Level {
 		for (int y = yt0; y <= yt1; y++) {
 			for (int x = xt0; x <= xt1; x++) {
 				if (x < 0 || y < 0 || x >= w || y >= h) continue;
-				List<Entity> entities = entitiesInTiles[x + y * this.w];
-				for (int i = 0; i < entities.size(); i++) {
-					Entity e = entities.get(i);
-					if (e.intersects(x0, y0, x1, y1)) result.add(e);
-				}
+				List<Entity> entities = entitiesInTiles.get(x + y * this.w);
+                for (Entity e : entities) {
+                    if (e.intersects(x0, y0, x1, y1)) result.add(e);
+                }
 			}
 		}
 		return result;
