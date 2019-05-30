@@ -27,8 +27,7 @@ public abstract class Recipe implements ListItem {
 	}
 
 	public void checkCanCraft(Player player) {
-		for (int i = 0; i < costs.size(); i++) {
-			Item item = costs.get(i);
+		for (Item item : costs) {
 			if (item instanceof ResourceItem) {
 				ResourceItem ri = (ResourceItem) item;
 				if (!player.inventory.hasResources(ri.resource, ri.count)) {

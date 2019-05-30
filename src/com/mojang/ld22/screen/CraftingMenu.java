@@ -28,12 +28,10 @@ public class CraftingMenu extends Menu {
 			this.recipes.get(i).checkCanCraft(player);
 		}
 
-		Collections.sort(this.recipes, new Comparator<Recipe>() {
-			public int compare(Recipe r1, Recipe r2) {
-				if (r1.canCraft && !r2.canCraft) return -1;
-				if (!r1.canCraft && r2.canCraft) return 1;
-				return 0;
-			}
+		this.recipes.sort((r1, r2) -> {
+			if (r1.canCraft && !r2.canCraft) return -1;
+			if (!r1.canCraft && r2.canCraft) return 1;
+			return 0;
 		});
 	}
 
@@ -56,8 +54,8 @@ public class CraftingMenu extends Menu {
 				r.craft(player);
 				Sound.CRAFT.play();
 			}
-			for (int i = 0; i < recipes.size(); i++) {
-				recipes.get(i).checkCanCraft(player);
+			for (Recipe recipe : recipes) {
+				recipe.checkCanCraft(player);
 			}
 		}
 	}
