@@ -92,7 +92,7 @@ public class TreeTile extends Tile {
 		}
 		int damage = level.getData(x, y) + dmg;
 		level.add(SmashParticle.createDefault(x, y));
-		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.GRAY));
+		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.WHITE_RED_RED_RED));
 		if (damage >= 20) {
 			int count = random.nextInt(2) + 1;
 			for (int i = 0; i < count; i++) {

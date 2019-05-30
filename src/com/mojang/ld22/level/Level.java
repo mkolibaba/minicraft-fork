@@ -16,9 +16,9 @@ import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.level.levelgen.LevelGen;
 import com.mojang.ld22.level.tile.Tile;
 
-public class Level {
-	private Random random = new Random();
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
 
+public class Level {
 	public int w, h;
 
 	public byte[] tiles;
@@ -246,8 +246,8 @@ public class Level {
 				minLevel = maxLevel = 4;
 			}
 
-			int lvl = random.nextInt(maxLevel - minLevel + 1) + minLevel;
-			if (random.nextInt(2) == 0)
+			int lvl = DEFAULT_RANDOM.nextInt(maxLevel - minLevel + 1) + minLevel;
+			if (DEFAULT_RANDOM.nextInt(2) == 0)
 				mob = new Slime(lvl);
 			else
 				mob = new Zombie(lvl);
@@ -262,8 +262,8 @@ public class Level {
 		trySpawn(1);
 
 		for (int i = 0; i < w * h / 50; i++) {
-			int xt = random.nextInt(w);
-			int yt = random.nextInt(w);
+			int xt = DEFAULT_RANDOM.nextInt(w);
+			int yt = DEFAULT_RANDOM.nextInt(w);
 			getTile(xt, yt).tick(this, xt, yt);
 		}
 		for (int i = 0; i < entities.size(); i++) {

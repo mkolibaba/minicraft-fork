@@ -50,7 +50,7 @@ public class CloudCactusTile extends Tile {
 	public void hurt(Level level, int x, int y, int dmg) {
 		int damage = level.getData(x, y) + 1;
 		level.add(SmashParticle.createDefault(x, y));
-		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.GRAY));
+		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.WHITE_RED_RED_RED));
 		if (dmg > 0) {
 			if (damage >= 10) {
 				level.setTile(x, y, Tile.cloud, 0);

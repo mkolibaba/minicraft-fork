@@ -5,6 +5,8 @@ import java.util.List;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class Spark extends Entity {
 	private int lifeTime;
 	public double xa, ya;
@@ -56,7 +58,7 @@ public class Spark extends Entity {
 		int xt = 8;
 		int yt = 13;
 
-		screen.render(x - 4, y - 4 - 2, xt + yt * 32, Color.LIGHT_GRAY, random.nextInt(4));
-		screen.render(x - 4, y - 4 + 2, xt + yt * 32, Color.get(-1, 000, 000, 000), random.nextInt(4));
+		screen.render(x - 4, y - 4 - 2, xt + yt * 32, Color.LIGHT_GRAY, DEFAULT_RANDOM.nextInt(4));
+		screen.render(x - 4, y - 4 + 2, xt + yt * 32, Color.get(-1, Color.BLACK_COLOR, Color.BLACK_COLOR, Color.BLACK_COLOR), random.nextInt(4));
 	}
 }

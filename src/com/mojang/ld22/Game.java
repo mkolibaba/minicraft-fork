@@ -319,7 +319,7 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		if ((tickCount / 20) % 2 == 0) {
-			Font.draw(msg, screen, xx, yy, Color.get(5, 333, 333, 333));
+			Font.draw(msg, screen, xx, yy, Color.get(5, Color.GRAY60_COLOR, Color.GRAY60_COLOR, Color.GRAY60_COLOR));
 		} else {
 			Font.draw(msg, screen, xx, yy, Color.get(5, 555, 555, 555));
 		}

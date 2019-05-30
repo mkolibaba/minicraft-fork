@@ -67,7 +67,12 @@ public class Screen {
 
 				int xs = x;
 				if (mirrorX) xs = 7 - x;
-				int col = (colors >> (sheet.pixels[xs + ys * sheet.width + toffs] * 8)) & 255;
+				// sheet.pixel contains value in range from 0 to 3 inclusive
+				// multiplying by 8 we get 0, 8, 16, or 24
+				int pixel = sheet.pixels[xs + ys * sheet.width + toffs] * 8;
+				// shifting colors which contains at once 4 colors we get necessary color
+				int col = (colors >> pixel) & 255;
+				// only false when col = 255
 				if (col < 255) pixels[(x + xp) + (y + yp) * w] = col;
 			}
 		}

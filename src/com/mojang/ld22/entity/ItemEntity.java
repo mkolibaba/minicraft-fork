@@ -3,6 +3,7 @@ package com.mojang.ld22.entity;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.Item;
+import com.mojang.ld22.item.Takeable;
 import com.mojang.ld22.sound.Sound;
 
 public class ItemEntity extends Entity {
@@ -81,7 +82,7 @@ public class ItemEntity extends Entity {
 	public void take(Player player) {
 		Sound.PICKUP.play();
 		player.score++;
-		item.onTake(this);
+		if (item instanceof Takeable) ((Takeable) item).onTake(this);
 		remove();
 	}
 }

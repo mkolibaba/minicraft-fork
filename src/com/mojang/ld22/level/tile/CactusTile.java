@@ -34,7 +34,7 @@ public class CactusTile extends Tile {
 	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
 		int damage = level.getData(x, y) + dmg;
 		level.add(SmashParticle.createDefault(x, y));
-		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.GRAY));
+		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.WHITE_RED_RED_RED));
 		if (damage >= 10) {
 			int count = DEFAULT_RANDOM.nextInt(2) + 1;
 			for (int i = 0; i < count; i++) {

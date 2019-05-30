@@ -36,7 +36,7 @@ public class Font {
 				else if (x == x1)
 					screen.render(x * 8, y * 8, 2 + 13 * 32, Color.DARK_BLUE, 1);
 				else
-					screen.render(x * 8, y * 8, 2 + 13 * 32, Color.get(5, 5, 5, 5), 1);
+					screen.render(x * 8, y * 8, 2 + 13 * 32, Color.get(Color.BLUE_COLOR, Color.BLUE_COLOR, Color.BLUE_COLOR, Color.BLUE_COLOR), 1);
 			}
 		}
 

@@ -33,7 +33,7 @@ public class InputHandler implements KeyListener {
 		}
 	}
 
-	public List<Key> keys = new ArrayList<Key>();
+	public List<Key> keys = new ArrayList<>();
 
 	public Key up = new Key();
 	public Key down = new Key();
@@ -43,8 +43,8 @@ public class InputHandler implements KeyListener {
 	public Key menu = new Key();
 
 	public void releaseAll() {
-		for (int i = 0; i < keys.size(); i++) {
-			keys.get(i).down = false;
+		for (Key key : keys) {
+			key.down = false;
 		}
 	}
 

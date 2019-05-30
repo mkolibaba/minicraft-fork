@@ -1,27 +1,24 @@
 package com.mojang.ld22.gfx;
 
+// https://en.wikipedia.org/wiki/List_of_software_palettes
 public class Color {
-    /**
-     * 255 86 86 86
+    /*
+    a, b, c, d means 4 colors of sprite
      */
-    public static final int GRAY = Color.get(-1, 500, 500, 500);
 
-    /**
-     * 255 215 215 215
-     */
-    public static final int LIGHT_GRAY = Color.get(-1, 555, 555, 555);
+    public static final int BLACK_COLOR = 0;
+    public static final int WHITE_COLOR = -1;
+    public static final int BLUE_COLOR = 5;
+    public static final int GREEN_COLOR = 50;
+    public static final int RED_COLOR = 500;
+    public static final int GRAY20_COLOR = 111;
+    public static final int GRAY60_COLOR = 333;
 
-    /**
-     * 0 129 129 129
-     */
-    public static final int DARK_GRAY = Color.get(0, 333, 333, 333);
+    public static final int WHITE_RED_RED_RED = Color.get(WHITE_COLOR, RED_COLOR, RED_COLOR, RED_COLOR);
+    public static final int LIGHT_GRAY = Color.get(WHITE_COLOR, 555, 555, 555);
+    public static final int BLACK_GRAY60_GRAY60_GRAY60 = Color.get(BLACK_COLOR, GRAY60_COLOR, GRAY60_COLOR, GRAY60_COLOR);
+    public static final int DARK_BLUE = Color.get(WHITE_COLOR, 1, 5, 445);
 
-    /**
-     * 0 1 5 173
-     */
-    public static final int DARK_BLUE = Color.get(-1, 1, 5, 445);
-
-    // a - alpha, d - red, c - green, d - blue ?
     public static int get(int a, int b, int c, int d) {
         return (get(d) << 24) + (get(c) << 16) + (get(b) << 8) + (get(a));
     }

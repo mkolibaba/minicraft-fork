@@ -57,7 +57,7 @@ public class OreTile extends Tile {
 	public void hurt(Level level, int x, int y, int dmg) {
 		int damage = level.getData(x, y) + 1;
 		level.add(SmashParticle.createDefault(x, y));
-		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.GRAY));
+		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.WHITE_RED_RED_RED));
 		if (dmg > 0) {
 			int count = random.nextInt(2);
 			if (damage >= random.nextInt(10) + 3) {
