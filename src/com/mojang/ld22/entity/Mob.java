@@ -8,6 +8,10 @@ import com.mojang.ld22.sound.Sound;
 
 import static com.mojang.ld22.Global.DEFAULT_RANDOM;
 
+// TODO: 31.05.2019
+//  1. rename Mob to Creature / create Creature, inherit Mob from Creature
+//  2. inherit Player from Creature
+//  3. inherit AirWizard, Zombie, Slime from Mob
 public class Mob extends Entity {
 	protected int walkDist = 0;
 	protected int dir = 0;

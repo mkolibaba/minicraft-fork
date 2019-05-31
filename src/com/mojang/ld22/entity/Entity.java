@@ -10,8 +10,8 @@ import com.mojang.ld22.level.tile.Tile;
 
 public class Entity {
 	public int x, y;
-	public int xr = 6;
-	public int yr = 6;
+	public int xr = 6; // hitbox
+	public int yr = 6; // hitbox
 	public boolean removed;
 	public Level level;
 
