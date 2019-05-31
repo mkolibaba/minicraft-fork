@@ -6,6 +6,8 @@ import com.mojang.ld22.item.Item;
 import com.mojang.ld22.item.Takeable;
 import com.mojang.ld22.sound.Sound;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class ItemEntity extends Entity {
 	private int lifeTime;
 	protected int walkDist = 0;
@@ -25,11 +27,11 @@ public class ItemEntity extends Entity {
 		yr = 3;
 
 		zz = 2;
-		xa = random.nextGaussian() * 0.3;
-		ya = random.nextGaussian() * 0.2;
-		za = random.nextFloat() * 0.7 + 1;
+		xa = DEFAULT_RANDOM.nextGaussian() * 0.3;
+		ya = DEFAULT_RANDOM.nextGaussian() * 0.2;
+		za = DEFAULT_RANDOM.nextFloat() * 0.7 + 1;
 
-		lifeTime = 60 * 10 + random.nextInt(60);
+		lifeTime = 60 * 10 + DEFAULT_RANDOM.nextInt(60);
 	}
 
 	public void tick() {

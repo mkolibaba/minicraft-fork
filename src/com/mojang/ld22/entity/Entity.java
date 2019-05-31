@@ -8,10 +8,7 @@ import com.mojang.ld22.item.Item;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 
-import static com.mojang.ld22.Global.DEFAULT_RANDOM;
-
 public class Entity {
-	protected final Random random = DEFAULT_RANDOM;
 	public int x, y;
 	public int xr = 6;
 	public int yr = 6;

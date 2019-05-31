@@ -5,6 +5,8 @@ import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class TextParticle extends Entity {
 	private String msg;
 	private int col;
@@ -20,9 +22,9 @@ public class TextParticle extends Entity {
 		xx = x;
 		yy = y;
 		zz = 2;
-		xa = random.nextGaussian() * 0.3;
-		ya = random.nextGaussian() * 0.2;
-		za = random.nextFloat() * 0.7 + 2;
+		xa = DEFAULT_RANDOM.nextGaussian() * 0.3;
+		ya = DEFAULT_RANDOM.nextGaussian() * 0.2;
+		za = DEFAULT_RANDOM.nextFloat() * 0.7 + 2;
 	}
 
 	public void tick() {

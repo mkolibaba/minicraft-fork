@@ -15,6 +15,8 @@ import com.mojang.ld22.level.tile.Tile;
 import com.mojang.ld22.screen.InventoryMenu;
 import com.mojang.ld22.sound.Sound;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class Player extends Mob {
 	private InputHandler input;
 	private int attackTime, attackDir;
@@ -193,7 +195,7 @@ public class Player extends Mob {
 			if (attackDir == 3) xt = (x + r) >> 4;
 
 			if (xt >= 0 && yt >= 0 && xt < level.w && yt < level.h) {
-				level.getTile(xt, yt).hurt(level, xt, yt, this, random.nextInt(3) + 1, attackDir);
+				level.getTile(xt, yt).hurt(level, xt, yt, this, DEFAULT_RANDOM.nextInt(3) + 1, attackDir);
 			}
 		}
 
@@ -226,7 +228,7 @@ public class Player extends Mob {
 	}
 
 	private int getAttackDamage(Entity e) {
-		int dmg = random.nextInt(3) + 1;
+		int dmg = DEFAULT_RANDOM.nextInt(3) + 1;
 		if (attackItem != null) {
 			dmg += attackItem.getAttackDamageBonus(e);
 		}
@@ -328,8 +330,8 @@ public class Player extends Mob {
 
 	public boolean findStartPos(Level level) {
 		while (true) {
-			int x = random.nextInt(level.w);
-			int y = random.nextInt(level.h);
+			int x = DEFAULT_RANDOM.nextInt(level.w);
+			int y = DEFAULT_RANDOM.nextInt(level.h);
 			if (level.getTile(x, y) == Tile.grass) {
 				this.x = x * 16 + 8;
 				this.y = y * 16 + 8;

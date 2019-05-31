@@ -26,6 +26,11 @@ public abstract class Recipe implements ListItem {
 		return this;
 	}
 
+	/**
+	 * Checks if player has not any of needed resources.
+	 *
+	 * @param player player
+	 */
 	public void checkCanCraft(Player player) {
 		for (Item item : costs) {
 			if (item instanceof ResourceItem) {

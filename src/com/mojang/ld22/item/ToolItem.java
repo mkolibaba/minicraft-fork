@@ -38,7 +38,7 @@ public class ToolItem extends Item implements Takeable {
     }
 
     public int getAttackDamageBonus(Entity e) {
-        return type.getAttackDamageBonus(material.rarity);
+        return type.getAttackDamageBonus(material);
     }
 
     public boolean matches(Item item) {

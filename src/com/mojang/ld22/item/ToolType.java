@@ -5,32 +5,32 @@ import static com.mojang.ld22.Global.DEFAULT_RANDOM;
 public enum ToolType {
     SHOVEL("Shvl", 0) {
         @Override
-        public int getAttackDamageBonus(int level) {
+        public int getAttackDamageBonus(ToolMaterial material) {
             return 1;
         }
     },
     HOE("Hoe", 1) {
         @Override
-        public int getAttackDamageBonus(int level) {
+        public int getAttackDamageBonus(ToolMaterial material) {
             return 1;
         }
     },
     SWORD("Swrd", 2) {
         @Override
-        public int getAttackDamageBonus(int level) {
-            return (level + 1) * 3 + DEFAULT_RANDOM.nextInt(2 + level * level * 2);
+        public int getAttackDamageBonus(ToolMaterial material) {
+            return (material.rarity + 1) * 3 + DEFAULT_RANDOM.nextInt(2 + material.rarity * material.rarity * 2);
         }
     },
     PICKAXE("Pick", 3) {
         @Override
-        public int getAttackDamageBonus(int level) {
+        public int getAttackDamageBonus(ToolMaterial material) {
             return 1;
         }
     },
     AXE("Axe", 4) {
         @Override
-        public int getAttackDamageBonus(int level) {
-            return (level + 1) * 2 + DEFAULT_RANDOM.nextInt(4);
+        public int getAttackDamageBonus(ToolMaterial material) {
+            return (material.rarity + 1) * 2 + DEFAULT_RANDOM.nextInt(4);
         }
     };
 
@@ -42,5 +42,5 @@ public enum ToolType {
         this.sprite = sprite;
     }
 
-    public abstract int getAttackDamageBonus(int level);
+    public abstract int getAttackDamageBonus(ToolMaterial material);
 }

@@ -293,7 +293,7 @@ public class LevelGen {
 
 				if (val > -2 && wval < -2.0 + (depth) / 2 * 3) {
 					if (depth > 2)
-						map[i] = Tile.lava.id;
+						map[i] = Tile.LAVA.id;
 					else
 						map[i] = Tile.water.id;
 				} else if (val > -2 && (mval < -1.7 || nval < -1.4)) {
@@ -423,7 +423,7 @@ public class LevelGen {
 					if (map[i] == Tile.dirt.id) pixels[i] = 0x604040;
 					if (map[i] == Tile.sand.id) pixels[i] = 0xa0a040;
 					if (map[i] == Tile.tree.id) pixels[i] = 0x003000;
-					if (map[i] == Tile.lava.id) pixels[i] = 0xff2020;
+					if (map[i] == Tile.LAVA.id) pixels[i] = 0xff2020;
 					if (map[i] == Tile.cloud.id) pixels[i] = 0xa0a0a0;
 					if (map[i] == Tile.stairsDown.id) pixels[i] = 0xffffff;
 					if (map[i] == Tile.stairsUp.id) pixels[i] = 0xffffff;

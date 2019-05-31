@@ -6,6 +6,8 @@ import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 import com.mojang.ld22.sound.Sound;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class Mob extends Entity {
 	protected int walkDist = 0;
 	protected int dir = 0;
@@ -24,7 +26,7 @@ public class Mob extends Entity {
 
 	public void tick() {
 		tickTime++;
-		if (level.getTile(x >> 4, y >> 4) == Tile.lava) {
+		if (level.getTile(x >> 4, y >> 4) == Tile.LAVA) {
 			hurt(this, 4, dir ^ 1);
 		}
 
@@ -71,7 +73,7 @@ public class Mob extends Entity {
 
 	protected boolean isSwimming() {
 		Tile tile = level.getTile(x >> 4, y >> 4);
-		return tile == Tile.water || tile == Tile.lava;
+		return tile == Tile.water || tile == Tile.LAVA;
 	}
 
 	public boolean blocks(Entity e) {
@@ -115,8 +117,8 @@ public class Mob extends Entity {
 	}
 
 	public boolean findStartPos(Level level) {
-		int x = random.nextInt(level.w);
-		int y = random.nextInt(level.h);
+		int x = DEFAULT_RANDOM.nextInt(level.w);
+		int y = DEFAULT_RANDOM.nextInt(level.h);
 		int xx = x * 16 + 8;
 		int yy = y * 16 + 8;
 

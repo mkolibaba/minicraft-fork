@@ -4,6 +4,8 @@ import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.sound.Sound;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class AirWizard extends Mob {
 	private int xa, ya;
 	private int randomWalkTime = 0;
@@ -12,8 +14,8 @@ public class AirWizard extends Mob {
 	private int attackType = 0;
 
 	public AirWizard() {
-		x = random.nextInt(64 * 16);
-		y = random.nextInt(64 * 16);
+		x = DEFAULT_RANDOM.nextInt(64 * 16);
+		y = DEFAULT_RANDOM.nextInt(64 * 16);
 		health = maxHealth = 2000;
 	}
 
@@ -65,17 +67,17 @@ public class AirWizard extends Mob {
 		}
 
 		int speed = (tickTime % 4) == 0 ? 0 : 1;
-		if (!move(xa * speed, ya * speed) || random.nextInt(100) == 0) {
+		if (!move(xa * speed, ya * speed) || DEFAULT_RANDOM.nextInt(100) == 0) {
 			randomWalkTime = 30;
-			xa = (random.nextInt(3) - 1);
-			ya = (random.nextInt(3) - 1);
+			xa = (DEFAULT_RANDOM.nextInt(3) - 1);
+			ya = (DEFAULT_RANDOM.nextInt(3) - 1);
 		}
 		if (randomWalkTime > 0) {
 			randomWalkTime--;
 			if (level.player != null && randomWalkTime == 0) {
 				int xd = level.player.x - x;
 				int yd = level.player.y - y;
-				if (random.nextInt(4) == 0 && xd * xd + yd * yd < 50 * 50) {
+				if (DEFAULT_RANDOM.nextInt(4) == 0 && xd * xd + yd * yd < 50 * 50) {
 					if (attackDelay == 0 && attackTime == 0) {
 						attackDelay = 60 * 2;
 					}

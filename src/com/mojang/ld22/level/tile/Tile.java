@@ -28,7 +28,7 @@ public class Tile {
 	public static Tile cactusSapling = new SaplingTile(10, sand, cactus);
 	public static Tile farmland = new FarmTile(11);
 	public static Tile wheat = new WheatTile(12);
-	public static Tile lava = new LavaTile(13);
+	public static final Tile LAVA = new LavaTile(13);
 	public static Tile stairsDown = new StairsTile(14, false);
 	public static Tile stairsUp = new StairsTile(15, true);
 	public static Tile infiniteFall = new InfiniteFallTile(16);

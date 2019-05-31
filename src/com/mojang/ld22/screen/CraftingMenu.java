@@ -21,7 +21,7 @@ public class CraftingMenu extends Menu {
 	private List<Recipe> recipes;
 
 	public CraftingMenu(List<Recipe> recipes, Player player) {
-		this.recipes = new ArrayList<Recipe>(recipes);
+		this.recipes = new ArrayList<>(recipes);
 		this.player = player;
 
 		for (int i = 0; i < recipes.size(); i++) {

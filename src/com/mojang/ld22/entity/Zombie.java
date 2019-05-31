@@ -5,6 +5,8 @@ import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.ResourceItem;
 import com.mojang.ld22.item.resource.Resource;
 
+import static com.mojang.ld22.Global.DEFAULT_RANDOM;
+
 public class Zombie extends Mob {
 	private int xa, ya;
 	private int lvl;
@@ -12,8 +14,8 @@ public class Zombie extends Mob {
 
 	public Zombie(int lvl) {
 		this.lvl = lvl;
-		x = random.nextInt(64 * 16);
-		y = random.nextInt(64 * 16);
+		x = DEFAULT_RANDOM.nextInt(64 * 16);
+		y = DEFAULT_RANDOM.nextInt(64 * 16);
 		health = maxHealth = lvl * lvl * 10;
 
 	}
@@ -35,10 +37,10 @@ public class Zombie extends Mob {
 		}
 
 		int speed = tickTime & 1;
-		if (!move(xa * speed, ya * speed) || random.nextInt(200) == 0) {
+		if (!move(xa * speed, ya * speed) || DEFAULT_RANDOM.nextInt(200) == 0) {
 			randomWalkTime = 60;
-			xa = (random.nextInt(3) - 1) * random.nextInt(2);
-			ya = (random.nextInt(3) - 1) * random.nextInt(2);
+			xa = (DEFAULT_RANDOM.nextInt(3) - 1) * DEFAULT_RANDOM.nextInt(2);
+			ya = (DEFAULT_RANDOM.nextInt(3) - 1) * DEFAULT_RANDOM.nextInt(2);
 		}
 		if (randomWalkTime > 0) randomWalkTime--;
 	}
@@ -89,9 +91,9 @@ public class Zombie extends Mob {
 	protected void die() {
 		super.die();
 
-		int count = random.nextInt(2) + 1;
+		int count = DEFAULT_RANDOM.nextInt(2) + 1;
 		for (int i = 0; i < count; i++) {
-			level.add(new ItemEntity(new ResourceItem(Resource.CLOTH), x + random.nextInt(11) - 5, y + random.nextInt(11) - 5));
+			level.add(new ItemEntity(new ResourceItem(Resource.CLOTH), x + DEFAULT_RANDOM.nextInt(11) - 5, y + DEFAULT_RANDOM.nextInt(11) - 5));
 		}
 
 		if (level.player != null) {

@@ -24,7 +24,7 @@ public class Spark extends Entity {
 		this.xa = xa;
 		this.ya = ya;
 
-		lifeTime = 60 * 10 + random.nextInt(30);
+		lifeTime = 60 * 10 + DEFAULT_RANDOM.nextInt(30);
 	}
 
 	public void tick() {
@@ -59,6 +59,6 @@ public class Spark extends Entity {
 		int yt = 13;
 
 		screen.render(x - 4, y - 4 - 2, xt + yt * 32, Color.LIGHT_GRAY, DEFAULT_RANDOM.nextInt(4));
-		screen.render(x - 4, y - 4 + 2, xt + yt * 32, Color.get(-1, Color.BLACK_COLOR, Color.BLACK_COLOR, Color.BLACK_COLOR), random.nextInt(4));
+		screen.render(x - 4, y - 4 + 2, xt + yt * 32, Color.get(-1, Color.BLACK_COLOR, Color.BLACK_COLOR, Color.BLACK_COLOR), DEFAULT_RANDOM.nextInt(4));
 	}
 }
