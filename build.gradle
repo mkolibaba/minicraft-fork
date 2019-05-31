@@ -14,6 +14,10 @@ plugins {
     id 'application'
 }
 
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '1.0.0'
+
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -31,7 +35,10 @@ dependencies {
 sourceSets {
     main {
         java {
-            srcDir 'src'
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['res']
         }
     }
 }
@@ -39,6 +46,11 @@ sourceSets {
 // Define the main class for the application
 mainClassName = 'com.mojang.ld22.Game'
 
-ant.importBuild('build.xml') { antTargetName ->
-    'a-' + antTargetName
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": "Gradle",
+                "Implementation-Version": version
+        )
+    }
 }
