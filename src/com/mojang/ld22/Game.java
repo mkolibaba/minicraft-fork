@@ -8,7 +8,6 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 import java.io.IOException;
-import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -97,13 +96,13 @@ public class Game extends Canvas implements Runnable {
 
 	private void init() {
 		int pp = 0;
-		for (int r = 0; r < 6; r++) {
-			for (int g = 0; g < 6; g++) {
-				for (int b = 0; b < 6; b++) {
-					int rr = (r * 255 / 5);
-					int gg = (g * 255 / 5);
-					int bb = (b * 255 / 5);
-					int mid = (rr * 30 + gg * 59 + bb * 11) / 100;
+		for (int r = 0; r <= 5; r++) {
+			for (int g = 0; g <= 5; g++) {
+				for (int b = 0; b <= 5; b++) {
+					int rr = r * 255 / 5;
+					int gg = g * 255 / 5;
+					int bb = b * 255 / 5;
+					int mid = (rr * 30 + gg * 59 + bb * 11) / 100; // color adjust?
 
 					int r1 = ((rr + mid * 1) / 2) * 230 / 255 + 10;
 					int g1 = ((gg + mid * 1) / 2) * 230 / 255 + 10;
@@ -126,8 +125,10 @@ public class Game extends Canvas implements Runnable {
 
 	public void run() {
 		long lastTime = System.nanoTime();
-		double unprocessed = 0;
-		double nsPerTick = 1000000000.0 / 60;
+		double unprocessedTicks = 0;
+		double nsInSecond = 1e9;
+		double ups = 60; // updates per second
+		double nsPerTick = nsInSecond / ups;
 		int frames = 0;
 		int ticks = 0;
 		long lastTimer1 = System.currentTimeMillis();
@@ -136,14 +137,12 @@ public class Game extends Canvas implements Runnable {
 
 		while (running) {
 			long now = System.nanoTime();
-			unprocessed += (now - lastTime) / nsPerTick;
+			unprocessedTicks += (now - lastTime) / nsPerTick;
 			lastTime = now;
-			boolean shouldRender = true;
-			while (unprocessed >= 1) {
+			while (unprocessedTicks >= 1) {
 				ticks++;
 				tick();
-				unprocessed -= 1;
-				shouldRender = true;
+				unprocessedTicks -= 1;
 			}
 
 			try {
@@ -152,10 +151,8 @@ public class Game extends Canvas implements Runnable {
 				e.printStackTrace();
 			}
 
-			if (shouldRender) {
-				frames++;
-				render();
-			}
+			frames++;
+			render();
 
 			if (System.currentTimeMillis() - lastTimer1 > 1000) {
 				lastTimer1 += 1000;

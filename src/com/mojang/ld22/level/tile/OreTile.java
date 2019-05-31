@@ -26,7 +26,7 @@ public class OreTile extends Tile {
 	}
 
 	public void render(Screen screen, Level level, int x, int y) {
-		color = (toDrop.color & 0xffffff00) + Color.get(level.dirtColor);
+		color = (toDrop.color & 0xffffff00) + Color.encodeTo6LevelRGB(level.dirtColor);
 		screen.render(x * 16 + 0, y * 16 + 0, 17 + 1 * 32, color, 0);
 		screen.render(x * 16 + 8, y * 16 + 0, 18 + 1 * 32, color, 0);
 		screen.render(x * 16 + 0, y * 16 + 8, 17 + 2 * 32, color, 0);

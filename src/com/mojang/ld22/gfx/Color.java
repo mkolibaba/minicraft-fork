@@ -20,10 +20,10 @@ public class Color {
     public static final int DARK_BLUE = Color.get(WHITE_COLOR, 1, 5, 445);
 
     public static int get(int a, int b, int c, int d) {
-        return (get(d) << 24) + (get(c) << 16) + (get(b) << 8) + (get(a));
+        return (encodeTo6LevelRGB(d) << 24) + (encodeTo6LevelRGB(c) << 16) + (encodeTo6LevelRGB(b) << 8) + (encodeTo6LevelRGB(a));
     }
 
-    public static int get(int d) {
+    public static int encodeTo6LevelRGB(int d) {
         if (d < 0) return 255;
         int r = d / 100 % 10;
         int g = d / 10 % 10;
