@@ -3,7 +3,7 @@ package com.mojang.ld22.crafting;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;

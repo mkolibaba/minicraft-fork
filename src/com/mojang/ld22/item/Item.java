@@ -1,8 +1,7 @@
 package com.mojang.ld22.item;
 
 import com.mojang.ld22.entity.Entity;
-import com.mojang.ld22.entity.ItemEntity;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;

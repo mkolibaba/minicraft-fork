@@ -2,7 +2,7 @@ package com.mojang.ld22.item;
 
 import com.mojang.ld22.entity.Entity;
 import com.mojang.ld22.entity.Furniture;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Color;
 
 public class PowerGloveItem extends Item {

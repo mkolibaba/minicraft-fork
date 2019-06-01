@@ -1,8 +1,8 @@
 package com.mojang.ld22.level.tile;
 
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.entity.Entity;
 import com.mojang.ld22.entity.ItemEntity;
-import com.mojang.ld22.entity.Mob;
 import com.mojang.ld22.entity.particle.SmashParticle;
 import com.mojang.ld22.entity.particle.TextParticle;
 import com.mojang.ld22.gfx.Color;
@@ -31,7 +31,7 @@ public class CactusTile extends Tile {
 		return false;
 	}
 
-	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
+	public void hurt(Level level, int x, int y, Creature source, int dmg, int attackDir) {
 		int damage = level.getData(x, y) + dmg;
 		level.add(SmashParticle.createDefault(x, y));
 		level.add(new TextParticle("" + dmg, x * 16 + 8, y * 16 + 8, Color.WHITE_RED_RED_RED));

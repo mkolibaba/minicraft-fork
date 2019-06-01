@@ -1,8 +1,8 @@
 package com.mojang.ld22.level.tile;
 
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.entity.ItemEntity;
-import com.mojang.ld22.entity.Mob;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.Item;
@@ -47,7 +47,7 @@ public class FlowerTile extends GrassTile {
 		return false;
 	}
 
-	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
+	public void hurt(Level level, int x, int y, Creature source, int dmg, int attackDir) {
 		int count = random.nextInt(2) + 1;
 		for (int i = 0; i < count; i++) {
 			level.add(new ItemEntity(new ResourceItem(Resource.FLOWER), x * 16 + random.nextInt(10) + 3, y * 16 + random.nextInt(10) + 3));

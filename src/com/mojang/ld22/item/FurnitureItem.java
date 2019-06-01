@@ -2,7 +2,7 @@ package com.mojang.ld22.item;
 
 import com.mojang.ld22.entity.Furniture;
 import com.mojang.ld22.entity.ItemEntity;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 

@@ -3,8 +3,8 @@ package com.mojang.ld22.level.tile;
 import java.util.Random;
 
 import com.mojang.ld22.entity.Entity;
-import com.mojang.ld22.entity.Mob;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Creature;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.Item;
 import com.mojang.ld22.item.resource.Resource;
@@ -63,7 +63,7 @@ public class Tile {
 		return 0;
 	}
 
-	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
+	public void hurt(Level level, int x, int y, Creature source, int dmg, int attackDir) {
 	}
 
 	public void bumpedInto(Level level, int xt, int yt, Entity entity) {

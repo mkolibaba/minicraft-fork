@@ -1,8 +1,9 @@
 package com.mojang.ld22.entity;
 
 import java.util.List;
-import java.util.Random;
 
+import com.mojang.ld22.entity.creature.Creature;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.Item;
 import com.mojang.ld22.level.Level;
@@ -37,7 +38,7 @@ public class Entity {
 		return false;
 	}
 
-	public void hurt(Mob mob, int dmg, int attackDir) {
+	public void hurt(Creature creature, int dmg, int attackDir) {
 	}
 
 	public void hurt(Tile tile, int x, int y, int dmg) {
@@ -105,10 +106,10 @@ public class Entity {
 		return true;
 	}
 
-	protected void touchedBy(Entity entity) {
+	public void touchedBy(Entity entity) {
 	}
 
-	public boolean isBlockableBy(Mob mob) {
+	public boolean isBlockableBy(Creature creature) {
 		return true;
 	}
 

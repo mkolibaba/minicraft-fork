@@ -1,6 +1,6 @@
 package com.mojang.ld22.crafting;
 
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.item.ToolItem;
 import com.mojang.ld22.item.ToolMaterial;
 import com.mojang.ld22.item.ToolType;

@@ -3,7 +3,7 @@ package com.mojang.ld22.item.resource;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.level.Level;
 import com.mojang.ld22.level.tile.Tile;
 

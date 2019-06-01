@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import com.mojang.ld22.entity.AirWizard;
+import com.mojang.ld22.entity.creature.AirWizard;
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.entity.Entity;
-import com.mojang.ld22.entity.Mob;
-import com.mojang.ld22.entity.Player;
-import com.mojang.ld22.entity.Slime;
-import com.mojang.ld22.entity.Zombie;
+import com.mojang.ld22.entity.creature.Player;
+import com.mojang.ld22.entity.creature.Slime;
+import com.mojang.ld22.entity.creature.Zombie;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.level.levelgen.LevelGen;
 import com.mojang.ld22.level.tile.Tile;
@@ -224,7 +224,7 @@ public class Level {
 
 	public void trySpawn(int count) {
 		for (int i = 0; i < count; i++) {
-			Mob mob;
+			Creature creature;
 
 			int minLevel = 1;
 			int maxLevel = 1;
@@ -237,12 +237,12 @@ public class Level {
 
 			int lvl = DEFAULT_RANDOM.nextInt(maxLevel - minLevel + 1) + minLevel;
 			if (DEFAULT_RANDOM.nextInt(2) == 0)
-				mob = new Slime(lvl);
+				creature = new Slime(lvl);
 			else
-				mob = new Zombie(lvl);
+				creature = new Zombie(lvl);
 
-			if (mob.findStartPos(this)) {
-				this.add(mob);
+			if (creature.findStartPos(this)) {
+				this.add(creature);
 			}
 		}
 	}

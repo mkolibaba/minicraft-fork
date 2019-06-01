@@ -1,5 +1,6 @@
 package com.mojang.ld22.entity;
 
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.FurnitureItem;
 import com.mojang.ld22.item.PowerGloveItem;
@@ -45,7 +46,7 @@ public class Furniture extends Entity {
 		return true;
 	}
 
-	protected void touchedBy(Entity entity) {
+	public void touchedBy(Entity entity) {
 		if (entity instanceof Player && pushTime == 0) {
 			pushDir = ((Player) entity).dir;
 			pushTime = 10;

@@ -1,5 +1,7 @@
 package com.mojang.ld22.entity;
 
+import com.mojang.ld22.entity.creature.Creature;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.item.Item;
@@ -65,7 +67,7 @@ public class ItemEntity extends Entity {
 		if (hurtTime > 0) hurtTime--;
 	}
 
-	public boolean isBlockableBy(Mob mob) {
+	public boolean isBlockableBy(Creature creature) {
 		return false;
 	}
 
@@ -77,7 +79,7 @@ public class ItemEntity extends Entity {
 		screen.render(x - 4, y - 4 - (int) (zz), item.getSprite(), item.getColor(), 0);
 	}
 
-	protected void touchedBy(Entity entity) {
+	public void touchedBy(Entity entity) {
 		if (time > 30) entity.touchItem(this);
 	}
 

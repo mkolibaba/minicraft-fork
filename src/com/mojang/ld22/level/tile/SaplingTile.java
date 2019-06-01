@@ -1,6 +1,6 @@
 package com.mojang.ld22.level.tile;
 
-import com.mojang.ld22.entity.Mob;
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.level.Level;
@@ -34,7 +34,7 @@ public class SaplingTile extends Tile {
 		}
 	}
 
-	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
+	public void hurt(Level level, int x, int y, Creature source, int dmg, int attackDir) {
 		level.setTile(x, y, onType, 0);
 	}
 }

@@ -1,7 +1,7 @@
 package com.mojang.ld22.screen;
 
 import com.mojang.ld22.entity.Inventory;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.gfx.Font;
 import com.mojang.ld22.gfx.Screen;
 

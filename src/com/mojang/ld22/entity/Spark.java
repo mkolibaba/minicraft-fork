@@ -2,6 +2,8 @@ package com.mojang.ld22.entity;
 
 import java.util.List;
 
+import com.mojang.ld22.entity.creature.AirWizard;
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.gfx.Color;
 import com.mojang.ld22.gfx.Screen;
 
@@ -40,13 +42,13 @@ public class Spark extends Entity {
 		List<Entity> toHit = level.getEntities(x, y, x, y);
 		for (int i = 0; i < toHit.size(); i++) {
 			Entity e = toHit.get(i);
-			if (e instanceof Mob && !(e instanceof AirWizard)) {
-				e.hurt(owner, 1, ((Mob) e).dir ^ 1);
+			if (e instanceof Creature && !(e instanceof AirWizard)) {
+				e.hurt(owner, 1, ((Creature) e).dir ^ 1);
 			}
 		}
 	}
 
-	public boolean isBlockableBy(Mob mob) {
+	public boolean isBlockableBy(Creature creature) {
 		return false;
 	}
 

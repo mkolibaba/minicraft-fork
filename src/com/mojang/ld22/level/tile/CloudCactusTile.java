@@ -1,9 +1,9 @@
 package com.mojang.ld22.level.tile;
 
-import com.mojang.ld22.entity.AirWizard;
+import com.mojang.ld22.entity.creature.AirWizard;
+import com.mojang.ld22.entity.creature.Creature;
 import com.mojang.ld22.entity.Entity;
-import com.mojang.ld22.entity.Mob;
-import com.mojang.ld22.entity.Player;
+import com.mojang.ld22.entity.creature.Player;
 import com.mojang.ld22.entity.particle.SmashParticle;
 import com.mojang.ld22.entity.particle.TextParticle;
 import com.mojang.ld22.gfx.Color;
@@ -30,7 +30,7 @@ public class CloudCactusTile extends Tile {
         return e instanceof AirWizard;
     }
 
-	public void hurt(Level level, int x, int y, Mob source, int dmg, int attackDir) {
+	public void hurt(Level level, int x, int y, Creature source, int dmg, int attackDir) {
 		hurt(level, x, y, 0);
 	}
 

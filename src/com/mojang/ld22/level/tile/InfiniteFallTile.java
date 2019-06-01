@@ -1,6 +1,6 @@
 package com.mojang.ld22.level.tile;
 
-import com.mojang.ld22.entity.AirWizard;
+import com.mojang.ld22.entity.creature.AirWizard;
 import com.mojang.ld22.entity.Entity;
 import com.mojang.ld22.gfx.Screen;
 import com.mojang.ld22.level.Level;
