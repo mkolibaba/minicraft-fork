@@ -81,7 +81,7 @@ public class LevelGen {
 			for (int i = 0; i < w * h; i++) {
 				count[result[0][i] & 0xff]++;
 			}
-			if (count[Tile.rock.id & 0xff] < 100) continue;
+			if (count[Tile.ROCK.id & 0xff] < 100) continue;
 			if (count[Tile.sand.id & 0xff] < 100) continue;
 			if (count[Tile.grass.id & 0xff] < 100) continue;
 			if (count[Tile.tree.id & 0xff] < 100) continue;
@@ -102,7 +102,7 @@ public class LevelGen {
 			for (int i = 0; i < w * h; i++) {
 				count[result[0][i] & 0xff]++;
 			}
-			if (count[Tile.rock.id & 0xff] < 100) continue;
+			if (count[Tile.ROCK.id & 0xff] < 100) continue;
 			if (count[Tile.dirt.id & 0xff] < 100) continue;
 			if (count[(Tile.ironOre.id & 0xff) + depth - 1] < 20) continue;
 			if (depth < 3) if (count[Tile.stairsDown.id & 0xff] < 2) continue;
@@ -160,7 +160,7 @@ public class LevelGen {
 				if (val < -0.5) {
 					map[i] = Tile.water.id;
 				} else if (val > 0.5 && mval < -1.5) {
-					map[i] = Tile.rock.id;
+					map[i] = Tile.ROCK.id;
 				} else {
 					map[i] = Tile.grass.id;
 				}
@@ -238,7 +238,7 @@ public class LevelGen {
 
 			for (int yy = y - 1; yy <= y + 1; yy++)
 				for (int xx = x - 1; xx <= x + 1; xx++) {
-					if (map[xx + yy * w] != Tile.rock.id) continue stairsLoop;
+					if (map[xx + yy * w] != Tile.ROCK.id) continue stairsLoop;
 				}
 
 			map[x + y * w] = Tile.stairsDown.id;
@@ -299,7 +299,7 @@ public class LevelGen {
 				} else if (val > -2 && (mval < -1.7 || nval < -1.4)) {
 					map[i] = Tile.dirt.id;
 				} else {
-					map[i] = Tile.rock.id;
+					map[i] = Tile.ROCK.id;
 				}
 			}
 		}
@@ -313,7 +313,7 @@ public class LevelGen {
 					int xx = x + random.nextInt(5) - random.nextInt(5);
 					int yy = y + random.nextInt(5) - random.nextInt(5);
 					if (xx >= r && yy >= r && xx < w - r && yy < h - r) {
-						if (map[xx + yy * w] == Tile.rock.id) {
+						if (map[xx + yy * w] == Tile.ROCK.id) {
 							map[xx + yy * w] = (byte) ((Tile.ironOre.id & 0xff) + depth - 1);
 						}
 					}
@@ -329,7 +329,7 @@ public class LevelGen {
 
 				for (int yy = y - 1; yy <= y + 1; yy++)
 					for (int xx = x - 1; xx <= x + 1; xx++) {
-						if (map[xx + yy * w] != Tile.rock.id) continue stairsLoop;
+						if (map[xx + yy * w] != Tile.ROCK.id) continue stairsLoop;
 					}
 
 				map[x + y * w] = Tile.stairsDown.id;
@@ -419,7 +419,7 @@ public class LevelGen {
 
 					if (map[i] == Tile.water.id) pixels[i] = 0x000080;
 					if (map[i] == Tile.grass.id) pixels[i] = 0x208020;
-					if (map[i] == Tile.rock.id) pixels[i] = 0xa0a0a0;
+					if (map[i] == Tile.ROCK.id) pixels[i] = 0xa0a0a0;
 					if (map[i] == Tile.dirt.id) pixels[i] = 0x604040;
 					if (map[i] == Tile.sand.id) pixels[i] = 0xa0a040;
 					if (map[i] == Tile.tree.id) pixels[i] = 0x003000;
